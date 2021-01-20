@@ -1,15 +1,33 @@
-import React from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, { useState, useEffect } from "react";
 import "../../styles/home.scss";
+import { CharacterCard } from "../component/characterCard";
+import { PlanetCard } from "../component/planetCard";
+import PropTypes from "prop-types";
 
-export const Home = () => (
-	<div className="text-center mt-5">
-		<h1>Hello Rigo!</h1>
-		<p>
-			<img src={rigoImage} />
-		</p>
-		<a href="#" className="btn btn-success">
-			If you see this green button, bootstrap is working
-		</a>
-	</div>
-);
+//main fetches and hardcoding here
+
+export const Home = () => {
+	const [characters, setCharacters] = useState([{ name: "Luke SkyWalker" }, { name: "Darth Vader" }]);
+	const [planets, setPlanets] = useState([{ name: "The Republic" }, { name: "Death Star" }]);
+
+	return (
+		<div className="container-fluid mt-5">
+			<div>
+				<h1>Characters</h1>
+				<div className="d-flex">
+					{characters.map((value, index) => {
+						return <CharacterCard key={index} character={value} />;
+					})}
+				</div>
+			</div>
+			<div>
+				<h1>Planets</h1>
+				<div className="d-flex">
+					{planets.map((value, index) => {
+						return <PlanetCard key={index} character={value} />;
+					})}
+				</div>
+			</div>
+		</div>
+	);
+};

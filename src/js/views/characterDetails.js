@@ -1,0 +1,1 @@
+//use props, show details of all the characters
