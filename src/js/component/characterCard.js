@@ -6,7 +6,7 @@ import "../../styles/home.scss";
 export const CharacterCard = props => {
 	return (
 		<div className="card" style={{ width: "18rem;" }}>
-			<img src="..." className="card-img-top" alt="..." />
+			<img src={props.imageURL} className="card-img-top" alt="..." />
 			<div className="card-body">
 				<h5 className="card-title">{props.character.name}</h5>
 				<p className="card-text">
@@ -21,5 +21,7 @@ export const CharacterCard = props => {
 };
 
 CharacterCard.propTypes = {
-	character: PropTypes.object
+	character: PropTypes.object,
+	imageURL: PropTypes.string,
+	description: PropTypes.string
 };

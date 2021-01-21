@@ -21,5 +21,7 @@ export const PlanetCard = props => {
 };
 
 PlanetCard.propTypes = {
-	character: PropTypes.object
+	character: PropTypes.object,
+	imageURL: PropTypes.string,
+	description: PropTypes.string
 };

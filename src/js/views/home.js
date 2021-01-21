@@ -9,7 +9,40 @@ import PropTypes from "prop-types";
 export const Home = () => {
 	const [characters, setCharacters] = useState([{ name: "Luke SkyWalker" }, { name: "Darth Vader" }]);
 	const [planets, setPlanets] = useState([{ name: "The Republic" }, { name: "Death Star" }]);
-
+	useEffect(() => {
+		fetch("https://swapi.dev/api/people/")
+			.then(function(response) {
+				if (!response.ok) {
+					throw Error(response.statusText);
+				}
+				// Read the response as json.
+				return response.json();
+			})
+			.then(function(responseAsJson) {
+				setCharacters(responseAsJson.results);
+				console.log(characters);
+			})
+			.catch(function(error) {
+				console.log("Looks like there was a problem: \n", error);
+			});
+	}, []);
+	useEffect(() => {
+		fetch("https://swapi.dev/api/planets/")
+			.then(function(response) {
+				if (!response.ok) {
+					throw Error(response.statusText);
+				}
+				// Read the response as json.
+				return response.json();
+			})
+			.then(function(responseAsJson) {
+				setPlanets(responseAsJson.results);
+				console.log(planets);
+			})
+			.catch(function(error) {
+				console.log("Looks like there was a problem: \n", error);
+			});
+	}, []);
 	return (
 		<div className="container-fluid mt-5">
 			<div>
