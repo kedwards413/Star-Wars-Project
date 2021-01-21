@@ -4,3 +4,23 @@ body {
 h1{
     color: white;
 }
+
+
+img{
+    height: 80px;
+    width: 130px;
+}
+
+.characterList {
+  overflow-x: auto;
+   display: inline-block;
+  float: none;
+  white-space: nowrap;
+}
+
+ .planetList{
+  overflow-x: auto;
+   display: inline-block;
+  float: none;
+  white-space: nowrap;
+}

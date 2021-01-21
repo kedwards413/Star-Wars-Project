@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-
+import { Link } from "react-router-dom";
 import "../../styles/home.scss";
 
 export const CharacterCard = props => {
 	return (
-		<div className="card" style={{ width: "18rem;" }}>
-			<img src={props.imageURL} className="card-img-top" alt="..." />
+		<div className="card m-3" style={{ width: "18rem;" }}>
+			<img src="." className="card-img-top" alt="..." />
 			<div className="card-body">
 				<h5 className="card-title">{props.character.name}</h5>
-				<p className="card-text">
-					Some quick example text to build on the card title and make up the bulk of the card content.
-				</p>
+				<p className="card-text">Gender: {props.character.gender}</p>
 				<a href="#" className="btn btn-primary">
 					Go somewhere
 				</a>
@@ -21,7 +19,5 @@ export const CharacterCard = props => {
 };
 
 CharacterCard.propTypes = {
-	character: PropTypes.object,
-	imageURL: PropTypes.string,
-	description: PropTypes.string
+	character: PropTypes.object
 };

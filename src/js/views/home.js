@@ -3,7 +3,7 @@ import "../../styles/home.scss";
 import { CharacterCard } from "../component/characterCard";
 import { PlanetCard } from "../component/planetCard";
 import PropTypes from "prop-types";
-
+import { Link } from "react-router-dom";
 //main fetches and hardcoding here
 
 export const Home = () => {
@@ -45,7 +45,7 @@ export const Home = () => {
 	}, []);
 	return (
 		<div className="container-fluid mt-5">
-			<div>
+			<div className="characterList">
 				<h1>Characters</h1>
 				<div className="d-flex">
 					{characters.map((value, index) => {
@@ -53,11 +53,11 @@ export const Home = () => {
 					})}
 				</div>
 			</div>
-			<div>
+			<div className="planetList">
 				<h1>Planets</h1>
 				<div className="d-flex">
 					{planets.map((value, index) => {
-						return <PlanetCard key={index} character={value} />;
+						return <PlanetCard key={index} planet={value} />;
 					})}
 				</div>
 			</div>
