@@ -1,63 +1,38 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "../../styles/home.scss";
 import { CharacterCard } from "../component/characterCard";
 import { PlanetCard } from "../component/planetCard";
+import { StarshipCard } from "../component/starshipCard";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 //main fetches and hardcoding here
 
 export const Home = () => {
-	const [characters, setCharacters] = useState([{ name: "Luke SkyWalker" }, { name: "Darth Vader" }]);
-	const [planets, setPlanets] = useState([{ name: "The Republic" }, { name: "Death Star" }]);
-	useEffect(() => {
-		fetch("https://swapi.dev/api/people/")
-			.then(function(response) {
-				if (!response.ok) {
-					throw Error(response.statusText);
-				}
-				// Read the response as json.
-				return response.json();
-			})
-			.then(function(responseAsJson) {
-				setCharacters(responseAsJson.results);
-				console.log(characters);
-			})
-			.catch(function(error) {
-				console.log("Looks like there was a problem: \n", error);
-			});
-	}, []);
-	useEffect(() => {
-		fetch("https://swapi.dev/api/planets/")
-			.then(function(response) {
-				if (!response.ok) {
-					throw Error(response.statusText);
-				}
-				// Read the response as json.
-				return response.json();
-			})
-			.then(function(responseAsJson) {
-				setPlanets(responseAsJson.results);
-				console.log(planets);
-			})
-			.catch(function(error) {
-				console.log("Looks like there was a problem: \n", error);
-			});
-	}, []);
+	const { store, actions } = useContext(Context);
 	return (
 		<div className="container-fluid mt-5">
 			<div className="characterList">
 				<h1>Characters</h1>
 				<div className="d-flex">
-					{characters.map((value, index) => {
-						return <CharacterCard key={index} character={value} />;
+					{store.characters.map((value, index) => {
+						return <CharacterCard key={index} character={value} index={index} />;
 					})}
 				</div>
 			</div>
 			<div className="planetList">
 				<h1>Planets</h1>
 				<div className="d-flex">
-					{planets.map((value, index) => {
+					{store.planets.map((value, index) => {
 						return <PlanetCard key={index} planet={value} />;
+					})}
+				</div>
+			</div>
+			<div className="starshipList">
+				<h1>Starships</h1>
+				<div className="d-flex">
+					{store.starship.map((value, index) => {
+						return <StarshipCard key={index} starship={value} />;
 					})}
 				</div>
 			</div>

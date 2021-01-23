@@ -23,7 +23,5 @@ export const PlanetDetails = props => {
 };
 
 PlanetDetails.propTypes = {
-	character: PropTypes.object,
-	imageURL: PropTypes.string,
-	description: PropTypes.string
+	planet: PropTypes.object
 };
