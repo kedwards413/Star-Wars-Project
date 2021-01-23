@@ -35,12 +35,9 @@ const Layout = () => {
 						<Route exact path="/single/:theid">
 							<Single />
 						</Route>
-						<Route exact path="/characterdetails/:theid">
-							<CharacterDetails />
-						</Route>
-						<Route exact path="/planetdetails/:theid">
-							<PlanetDetails />
-						</Route>
+						<Route exact path="/characterdetails/:theid" component={CharacterDetails} />
+
+						<Route exact path="/planetdetails/:theid" component={PlanetDetails} />
 					</Switch>
 					<Footer />
 				</ScrollToTop>

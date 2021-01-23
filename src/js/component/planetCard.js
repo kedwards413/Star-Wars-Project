@@ -19,7 +19,7 @@ export const PlanetCard = props => {
 							Click for more
 						</span>
 					</Link>
-					<a href="#" className="btn btn-outline-danger">
+					<a href="#" className="btn btn-outline-danger ml-5">
 						Fav
 					</a>
 				</div>

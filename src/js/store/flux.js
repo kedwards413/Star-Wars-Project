@@ -20,7 +20,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
-			addFavorite: newItem => {},
+			addFavorite: newItem => {
+				var storeCopy = getStore();
+				var updatedFavorites = storeCopy.favorites.concat(newItem);
+				setStore({ favorites: updatedFavorites });
+			},
 			loadSomeData: () => {
 				fetch("https://swapi.dev/api/people/")
 					.then(function(response) {

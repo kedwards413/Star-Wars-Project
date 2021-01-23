@@ -9,14 +9,12 @@ import { useParams } from "react-router-dom";
 
 export const CharacterDetails = props => {
 	return (
-		<div className="card" style={{ width: "18rem;" }}>
-			<img src="..." className="card-img-top" alt="..." />
-			<div className="card-body">
-				<h5 className="card-title" />
-				<p className="card-text" />
-				<a href="#" className="btn btn-primary">
-					Go somewhere
-				</a>
+		<div className="jumbotron jumbotron-fluid">
+			<div className="container">
+				<h1 className="display-4">Fluid jumbotron</h1>
+				<p className="lead">
+					This is a modified jumbotron that occupies the entire horizontal space of its parent.
+				</p>
 			</div>
 		</div>
 	);
