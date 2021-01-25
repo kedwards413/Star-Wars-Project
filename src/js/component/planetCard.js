@@ -1,27 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "../../styles/home.scss";
+import { Context } from "../store/appContext";
 
 export const PlanetCard = props => {
+	const { store, actions } = useContext(Context);
 	return (
-		<div className="card m-3" style={{ width: "18rem;" }}>
-			<img src="..." className="card-img-top" alt="..." />
-			<div className="card-body">
-				<h5 className="card-title">{props.planet.name}</h5>
-				<p className="card-text">
-					Terrain: {props.planet.terrain} <br />
-					Population: {props.planet.population}
-				</p>
-				<div className="d-flex justify-content-between">
-					<Link to={{ pathname: `/planetDetails/${props.planet.name}`, state: props.planet }}>
-						<span href="#" className="btn btn-primary">
-							Click for more
-						</span>
-					</Link>
-					<a href="#" className="btn btn-outline-danger ml-5">
-						Fav
-					</a>
+		<div className="col">
+			<div className="card-group">
+				<div className="card" style={{ width: "18rem" }}>
+					<img className="card-img-top" src="https://www.dummyimage.com/400x200" alt="Card image cap" />
+					<div className="card-body">
+						<h5 className="card-title text-left">{props.planet.name}</h5>
+						<p className="card-text">Terrain: {props.planet.terrain}</p>
+						<p className="card-text">Climate: {props.planet.climate}</p>
+						<Link to={`/planetdetails/${props.index}`}>
+							<span href="#" className="btn btn-primary">
+								Click for more
+							</span>
+						</Link>
+						<a
+							href="#"
+							className="btn btn-outline-danger ml-5"
+							onClick={() => actions.addFavorite(props.planet.name)}>
+							Fav
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -29,5 +34,6 @@ export const PlanetCard = props => {
 };
 
 PlanetCard.propTypes = {
-	planet: PropTypes.object
+	planet: PropTypes.object,
+	index: PropTypes.number
 };
