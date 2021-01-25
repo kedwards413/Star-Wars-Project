@@ -34,6 +34,7 @@ export const Navbar = () => {
 								return (
 									<li className="dropdown-item" href="#" key={index}>
 										{item}
+										<button onClick={() => actions.deleteItem()}>X </button>
 									</li>
 								);
 							})}

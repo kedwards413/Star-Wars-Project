@@ -25,6 +25,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				var updatedFavorites = storeCopy.favorites.concat(newItem);
 				setStore({ favorites: updatedFavorites });
 			},
+			deleteItem: index => {
+				var storeCopy = getStore();
+				var updatedList = storeCopy.favorites.filter(index);
+				setStore({ favorites: updatedList });
+			},
 			loadSomeData: () => {
 				fetch("https://swapi.dev/api/people/")
 					.then(function(response) {
