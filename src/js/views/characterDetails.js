@@ -13,9 +13,19 @@ export const CharacterDetails = props => {
 	return (
 		<div className="jumbotron jumbotron-fluid">
 			<div className="container">
-				<h1 className="display-4" />
+				<h1 className="display-4">{store.characters[params.theid].name}</h1>
 				<p className="lead">
-					This is a modified jumbotron that occupies the entire horizontal space of its parent.
+					<strong>Height:</strong>
+					{store.characters[params.theid].height}
+					<br />
+					<strong>Hair Color:</strong>
+					{store.characters[params.theid].hair_color}
+					<br />
+					<strong>Eye Color:</strong>
+					{store.characters[params.theid].eye_color}
+					<br />
+					<strong>Gender:</strong>
+					{store.characters[params.theid].gender}
 				</p>
 			</div>
 		</div>

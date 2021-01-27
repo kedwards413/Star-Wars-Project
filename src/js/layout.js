@@ -14,6 +14,7 @@ import { CharacterCard } from "./component/characterCard";
 import { PlanetCard } from "./component/planetCard";
 import { CharacterDetails } from "./views/characterDetails";
 import { PlanetDetails } from "./views/planetDetails";
+import { StarshipDetails } from "./views/starshipDetails";
 //create your first component
 const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -38,6 +39,7 @@ const Layout = () => {
 						<Route exact path="/characterdetails/:theid" component={CharacterDetails} />
 
 						<Route exact path="/planetdetails/:theid" component={PlanetDetails} />
+						<Route exact path="/starshipdetails/:theid" component={StarshipDetails} />
 					</Switch>
 					<Footer />
 				</ScrollToTop>

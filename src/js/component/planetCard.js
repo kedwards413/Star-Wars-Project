@@ -6,6 +6,7 @@ import { Context } from "../store/appContext";
 
 export const PlanetCard = props => {
 	const { store, actions } = useContext(Context);
+
 	return (
 		<div className="col">
 			<div className="card-group">

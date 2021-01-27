@@ -4,21 +4,34 @@ import { CharacterCard } from "../component/characterCard";
 import { PlanetCard } from "../component/planetCard";
 import { StarshipCard } from "../component/starshipCard";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-
-export const StarshipDetails = () => {
-    
+export const StarshipDetails = props => {
+	const { store, actions } = useContext(Context);
+	const params = useParams();
 	return (
 		<div className="jumbotron jumbotron-fluid">
 			<div className="container">
-				<h1 className="display-4">Fluid jumbotron</h1>
+				<h1 className="display-4">{store.starship[params.theid].name}</h1>
 				<p className="lead">
-					This is a modified jumbotron that occupies the entire horizontal space of its parent.
+					<strong>Crew:</strong>
+					{store.starship[params.theid].crew}
+					<br />
+					<strong>Cargo Capacity:</strong>
+					{store.starship[params.theid].cargo_capacity}
+					<br />
+					<strong>MGLT:</strong>
+					{store.starship[params.theid].MGLT}
+					<br />
+					<strong>Consumables:</strong>
+					{store.starship[params.theid].consumables}
 				</p>
 			</div>
 		</div>
 	);
 };
 
+StarshipDetails.propTypes = {
+	starship: PropTypes.object
+};

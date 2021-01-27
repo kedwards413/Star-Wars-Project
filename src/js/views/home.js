@@ -28,7 +28,7 @@ export const Home = () => {
 				<div className="container horizontal-scrollable">
 					<div className="row row-horizon flex-nowrap py-3">
 						{store.planets.map((value, index) => {
-							return <PlanetCard key={index} planet={value} />;
+							return <PlanetCard key={index} planet={value} index={index} />;
 						})}
 					</div>
 				</div>
@@ -38,7 +38,7 @@ export const Home = () => {
 				<div className="container horizontal-scrollable">
 					<div className="row row-horizon flex-nowrap py-3">
 						{store.starship.map((value, index) => {
-							return <StarshipCard key={index} starship={value} />;
+							return <StarshipCard key={index} starship={value} index={index} />;
 						})}
 					</div>
 				</div>

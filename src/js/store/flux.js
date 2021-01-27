@@ -22,12 +22,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// Use getActions to call a function within a fuction
 			addFavorite: newItem => {
 				var storeCopy = getStore();
-				var updatedFavorites = storeCopy.favorites.concat(newItem);
-				setStore({ favorites: updatedFavorites });
+				let filterItem = storeCopy.favorites.filter(value => {
+					return value == newItem;
+				});
+
+				if (filterItem.length == 0) {
+					var updatedFavorites = storeCopy.favorites.concat(newItem);
+					setStore({ favorites: updatedFavorites });
+				}
 			},
 			deleteItem: index => {
 				var storeCopy = getStore();
-				var updatedList = storeCopy.favorites.filter(index);
+				var updatedList = storeCopy.favorites.filter((favorite, indexFavorite) => {
+					return index != indexFavorite;
+				});
+				console.log(updatedList);
 				setStore({ favorites: updatedList });
 			},
 			loadSomeData: () => {
